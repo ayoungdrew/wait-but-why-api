@@ -23,10 +23,10 @@ require 'rails_helper'
 # removed from Rails core in Rails 5, but can be added back in via the
 # `rails-controller-testing` gem.
 
-RSpec.describe EventsController, type: :controller do
+RSpec.describe EpisodesController, type: :controller do
 
   # This should return the minimal set of attributes required to create a valid
-  # Event. As you add validations to Event, be sure to
+  # Episode. As you add validations to Episode, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
     skip("Add a hash of attributes valid for your model")
@@ -38,12 +38,12 @@ RSpec.describe EventsController, type: :controller do
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
-  # EventsController. Be sure to keep this updated too.
+  # EpisodesController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
   describe "GET #index" do
     it "returns a success response" do
-      event = Event.create! valid_attributes
+      episode = Episode.create! valid_attributes
       get :index, params: {}, session: valid_session
       expect(response).to be_success
     end
@@ -51,33 +51,33 @@ RSpec.describe EventsController, type: :controller do
 
   describe "GET #show" do
     it "returns a success response" do
-      event = Event.create! valid_attributes
-      get :show, params: {id: event.to_param}, session: valid_session
+      episode = Episode.create! valid_attributes
+      get :show, params: {id: episode.to_param}, session: valid_session
       expect(response).to be_success
     end
   end
 
   describe "POST #create" do
     context "with valid params" do
-      it "creates a new Event" do
+      it "creates a new Episode" do
         expect {
-          post :create, params: {event: valid_attributes}, session: valid_session
-        }.to change(Event, :count).by(1)
+          post :create, params: {episode: valid_attributes}, session: valid_session
+        }.to change(Episode, :count).by(1)
       end
 
-      it "renders a JSON response with the new event" do
+      it "renders a JSON response with the new episode" do
 
-        post :create, params: {event: valid_attributes}, session: valid_session
+        post :create, params: {episode: valid_attributes}, session: valid_session
         expect(response).to have_http_status(:created)
         expect(response.content_type).to eq('application/json')
-        expect(response.location).to eq(event_url(Event.last))
+        expect(response.location).to eq(episode_url(Episode.last))
       end
     end
 
     context "with invalid params" do
-      it "renders a JSON response with errors for the new event" do
+      it "renders a JSON response with errors for the new episode" do
 
-        post :create, params: {event: invalid_attributes}, session: valid_session
+        post :create, params: {episode: invalid_attributes}, session: valid_session
         expect(response).to have_http_status(:unprocessable_entity)
         expect(response.content_type).to eq('application/json')
       end
@@ -90,27 +90,27 @@ RSpec.describe EventsController, type: :controller do
         skip("Add a hash of attributes valid for your model")
       }
 
-      it "updates the requested event" do
-        event = Event.create! valid_attributes
-        put :update, params: {id: event.to_param, event: new_attributes}, session: valid_session
-        event.reload
+      it "updates the requested episode" do
+        episode = Episode.create! valid_attributes
+        put :update, params: {id: episode.to_param, episode: new_attributes}, session: valid_session
+        episode.reload
         skip("Add assertions for updated state")
       end
 
-      it "renders a JSON response with the event" do
-        event = Event.create! valid_attributes
+      it "renders a JSON response with the episode" do
+        episode = Episode.create! valid_attributes
 
-        put :update, params: {id: event.to_param, event: valid_attributes}, session: valid_session
+        put :update, params: {id: episode.to_param, episode: valid_attributes}, session: valid_session
         expect(response).to have_http_status(:ok)
         expect(response.content_type).to eq('application/json')
       end
     end
 
     context "with invalid params" do
-      it "renders a JSON response with errors for the event" do
-        event = Event.create! valid_attributes
+      it "renders a JSON response with errors for the episode" do
+        episode = Episode.create! valid_attributes
 
-        put :update, params: {id: event.to_param, event: invalid_attributes}, session: valid_session
+        put :update, params: {id: episode.to_param, episode: invalid_attributes}, session: valid_session
         expect(response).to have_http_status(:unprocessable_entity)
         expect(response.content_type).to eq('application/json')
       end
@@ -118,11 +118,11 @@ RSpec.describe EventsController, type: :controller do
   end
 
   describe "DELETE #destroy" do
-    it "destroys the requested event" do
-      event = Event.create! valid_attributes
+    it "destroys the requested episode" do
+      episode = Episode.create! valid_attributes
       expect {
-        delete :destroy, params: {id: event.to_param}, session: valid_session
-      }.to change(Event, :count).by(-1)
+        delete :destroy, params: {id: episode.to_param}, session: valid_session
+      }.to change(Episode, :count).by(-1)
     end
   end
 
