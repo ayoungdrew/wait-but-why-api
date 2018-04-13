@@ -20,7 +20,7 @@ csv.each do |row|
   t.why = row['why']
   t.description = row['description']
   t.user_id = row['user_id']
-  t.first_or_create
+  t.save
   puts "#{t.title}, #{t.date} saved"
 end
 
