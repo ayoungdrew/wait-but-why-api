@@ -1,4 +1,4 @@
-class EpisodesController < ApplicationController
+class EpisodesController < OpenReadController
   before_action :set_episode, only: [:show, :update, :destroy]
 
   # GET /episodes
@@ -15,7 +15,9 @@ class EpisodesController < ApplicationController
 
   # POST /episodes
   def create
+    # @episode = current_user.episodes.build(episode_params)
     @episode = Episode.new(episode_params)
+    @episode.user = current_user
 
     if @episode.save
       render json: @episode, status: :created, location: @episode
@@ -42,6 +44,7 @@ class EpisodesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_episode
       @episode = Episode.find(params[:id])
+      # @episode = current_user.episodes.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
