@@ -43,8 +43,8 @@ class EpisodesController < OpenReadController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_episode
-      @episode = Episode.find(params[:id])
-      # @episode = current_user.episodes.find(params[:id])
+      # @episode = Episode.find(params[:id])
+      @episode = current_user.episodes.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
