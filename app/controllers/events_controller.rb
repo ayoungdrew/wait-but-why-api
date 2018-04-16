@@ -15,6 +15,7 @@ class EventsController < OpenReadController
 
   # POST /events
   def create
+    # @event = current_user.events.build(event_params)
     @event = Event.new(event_params)
     @event.user = current_user
 
@@ -43,6 +44,7 @@ class EventsController < OpenReadController
     # Use callbacks to share common setup or constraints between actions.
     def set_event
       # @event = Event.find(params[:id])
+      # this allows only current user to edit only their events
       @event = current_user.events.find(params[:id])
     end
 
