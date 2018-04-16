@@ -2,7 +2,7 @@
 
 class UsersController < ProtectedController
   before_action :set_user, only: %i[update show]
-  skip_before_action :authenticate, only: %i[signup signin]
+  skip_before_action :authenticate, only: %i[index signup signin]
 
   # POST '/sign-up'
   def signup

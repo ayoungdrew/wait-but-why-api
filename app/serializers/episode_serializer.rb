@@ -1,4 +1,7 @@
 class EpisodeSerializer < ActiveModel::Serializer
-  attributes :id, :title, :date, :why, :description, :user_id
+  attributes :editable, :id, :title, :date, :why, :description, :user_id
   has_one :user
+  def editable
+    scope == object.user
+  end
 end

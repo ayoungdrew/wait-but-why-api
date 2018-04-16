@@ -44,6 +44,7 @@ class EpisodesController < OpenReadController
     # Use callbacks to share common setup or constraints between actions.
     def set_episode
       # @episode = Episode.find(params[:id])
+      # this allows only current user to edit only their episodes
       @episode = current_user.episodes.find(params[:id])
     end
 
