@@ -3,7 +3,7 @@
 class User < ApplicationRecord
   include Authentication
   has_many :examples
-  has_many :comments
+  has_many :comments, dependent: :destroy
   # has_many :episodes, dependent: :destroy
   has_many :events, dependent: :destroy
 end

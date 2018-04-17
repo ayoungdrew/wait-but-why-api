@@ -28,6 +28,7 @@ class EventsController < OpenReadController
 
   # PATCH/PUT /events/1
   def update
+    @event = current_user.events.find(params[:id])
     if @event.update(event_params)
       render json: @event
     else
@@ -37,15 +38,16 @@ class EventsController < OpenReadController
 
   # DELETE /events/1
   def destroy
+    @event = current_user.events.find(params[:id])
     @event.destroy
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
-      # @event = Event.find(params[:id])
+      @event = Event.find(params[:id])
       # this allows only current user to edit only their events
-      @event = current_user.events.find(params[:id])
+      # @event = current_user.events.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
