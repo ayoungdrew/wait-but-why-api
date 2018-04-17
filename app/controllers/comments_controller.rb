@@ -48,6 +48,6 @@ class CommentsController < OpenReadController
 
     # Only allow a trusted parameter "white list" through.
     def comment_params
-      params.require(:comment).permit(:body, :event_id, :user_id)
+      params.require(:comment).permit(:body, :event_id)
     end
 end
