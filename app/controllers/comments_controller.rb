@@ -27,6 +27,7 @@ class CommentsController < OpenReadController
 
   # PATCH/PUT /comments/1
   def update
+    @comment = current_user.comments.find(params[:id])
     if @comment.update(comment_params)
       render json: @comment
     else
@@ -36,14 +37,15 @@ class CommentsController < OpenReadController
 
   # DELETE /comments/1
   def destroy
+    @comment = current_user.comments.find(params[:id])
     @comment.destroy
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_comment
-      # @comment = Comment.find(params[:id])
-      @comment = current_user.comments.find(params[:id])
+      @comment = Comment.find(params[:id])
+      # @comment = current_user.comments.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
