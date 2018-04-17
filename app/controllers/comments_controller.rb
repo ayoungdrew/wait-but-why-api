@@ -1,11 +1,23 @@
-class CommentsController < OpenReadController
-  def create
-    @event = Event.find(params[:event_id])
+class CommentsController < ApplicationController
+  skip_before_action :authenticate_user, only: [:create]
 
-    @ecomment = @event.comments.create(comment_params)
-
-    redirect_to event_path(@event)
+  # GET /comments
+  def index
+    @comments = Comment.all
+    render json: @comments
   end
+
+  # POST /comments
+  def create
+    @comment = Comment.new(comment_params)
+
+    if @comment.save
+      render json: @comment, status: :created, location: @comment
+    else
+      render json: @comment.errors, status: :unprocessable_entity
+    end
+  end
+
   private
     def comment_params
       params.require(:comment).permit(:commenter, :body)
