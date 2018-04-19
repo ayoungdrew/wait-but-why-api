@@ -8,7 +8,7 @@ class EventSerializer < ActiveModel::Serializer
   end
 
   def comments
-    object.comments.pluck(:id)
+    object.comments.pluck(:id).sort()
     # object.comments.pluck(:user_id)
   end
 
