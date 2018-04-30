@@ -1,4 +1,4 @@
-class CommentsController < ProtectedController
+class CommentsController < OpenReadController
   before_action :set_comment, only: [:show, :update, :destroy]
   # before_action :authenticate, only: [:index, :show, :create, :destroy, :update]
 

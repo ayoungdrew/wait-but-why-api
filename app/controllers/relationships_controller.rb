@@ -41,7 +41,13 @@ class RelationshipsController < OpenReadController
 
   # DELETE /relationships/1
   def destroy
-    @relationship = current_user.relationships.find(params[:id])
+    # user = User.find(relationship_params["followed_id"])
+    # @relationship = current_user.unfollow(user)
+    # user = Relationship.find(params[:id]).followed
+    # current_user.unfollow(user)
+    # redirect_to user
+    @relationship = current_user.active_relationships.find(params[:id])
+    puts "look up"
     @relationship.destroy
   end
 
