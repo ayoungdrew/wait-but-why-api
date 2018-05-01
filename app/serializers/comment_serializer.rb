@@ -1,5 +1,5 @@
 class CommentSerializer < ActiveModel::Serializer
-  attributes :commenter, :editable, :id, :body, :user_id, :created_at
+  attributes :commenter, :commenter_image, :editable, :id, :body, :user_id, :created_at
   # has_one :event
   # has_one :user
   def editable
@@ -7,5 +7,8 @@ class CommentSerializer < ActiveModel::Serializer
   end
   def commenter
     object.user.email
+  end
+  def commenter_image
+    object.user.image
   end
 end
