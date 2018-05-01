@@ -1,4 +1,4 @@
-class EventsController < ProtectedController
+class EventsController < OpenReadController
   before_action :set_event, only: [:show, :update, :destroy]
 
   # GET /events
