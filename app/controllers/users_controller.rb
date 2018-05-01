@@ -56,8 +56,8 @@ class UsersController < OpenReadController
   end
 
   def update
-    if @user.update(user_params)
-      render json: @user
+    if current_user.update(user_params)
+      render json: current_user
     else
       render json: @user.errors, status: :unprocessable_entity
     end
@@ -71,7 +71,7 @@ class UsersController < OpenReadController
 
   def user_creds
     params.require(:credentials)
-          .permit(:email, :password, :password_confirmation)
+          .permit(:email, :password, :password_confirmation, :image)
   end
 
   def pw_creds
@@ -81,6 +81,6 @@ class UsersController < OpenReadController
 
   def user_params
     params.require(:user)
-          .permit(:email)
+          .permit(:image)
   end
 end
