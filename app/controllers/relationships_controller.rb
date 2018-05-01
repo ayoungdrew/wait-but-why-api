@@ -1,4 +1,4 @@
-class RelationshipsController < OpenReadController
+class RelationshipsController < ProtectedController
   before_action :set_relationship, only: [:show, :update, :destroy]
   # before_action :authenticate, only: [:index, :show, :create, :destroy, :update]
 
