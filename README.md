@@ -1,11 +1,11 @@
-https://ayoungdrew.github.io/wait-but-why-client/
-
-Front-end client repo: https://github.com/ayoungdrew/wait-but-why-client
-Heroku App: https://wait-but-why-api.herokuapp.com/
-
 ![A test image](https://res.cloudinary.com/duqjlnkij/image/upload/v1524224049/wait-but-why-screenshot.png)
 
 # Wait But Why
+
+- [Deployed Site](https://ayoungdrew.github.io/wait-but-why/)
+- [Front-End Client Repo](https://github.com/ayoungdrew/wait-but-why/)
+- [Heroku App](https://wait-but-why-api.herokuapp.com/)
+
 
 The planning process started out with me thinking on what I could improve on from what I learned with my Life Soundtrack project which greatly benefitted from the handlebars component system that Ember also employs. I figured another journaling/blogging type app would be fun to explore.
 

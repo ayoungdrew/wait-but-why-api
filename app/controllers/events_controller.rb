@@ -46,8 +46,6 @@ class EventsController < ProtectedController
     # Use callbacks to share common setup or constraints between actions.
     def set_event
       @event = Event.find(params[:id])
-      # this allows only current user to edit only their events
-      # @event = current_user.events.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
